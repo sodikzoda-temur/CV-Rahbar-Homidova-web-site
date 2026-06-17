@@ -89,6 +89,7 @@
       if (period) html += '<p class="tl-item__period">' + escapeHtml(period) + '</p>';
       html += '<h3 class="tl-item__role">' + escapeHtml(pick(it.role, lang)) + '</h3>';
       html += '<p class="tl-item__org">' + escapeHtml(org) + (loc ? '<span> · ' + escapeHtml(loc) + '</span>' : '') + '</p>';
+      if (it.note) html += '<p class="tl-item__note">' + escapeHtml(pick(it.note, lang)) + '</p>';
       if (bullets.length) {
         html += '<div class="tl-item__desc"><ul>' +
           bullets.map(function (b) { return '<li>' + escapeHtml(b) + '</li>'; }).join('') + '</ul></div>';
@@ -146,11 +147,59 @@
     });
   }
 
+  function renderFacts(lang) {
+    var wrap = document.getElementById('aboutFacts');
+    var dict = I18N[lang] || I18N.en;
+    if (wrap) {
+      var facts = [
+        [dict.fact_experience_label, pick(PROFILE.facts.experience, lang)],
+        [dict.fact_role_label, pick(PROFILE.contact.currentTitle, lang)],
+        [dict.fact_location_label, pick(PROFILE.contact.location, lang)],
+        [dict.fact_languages_label, pick(PROFILE.facts.languagesShort, lang)]
+      ];
+      wrap.innerHTML = facts.map(function (f) {
+        return '<div class="fact"><dt>' + escapeHtml(f[0]) + '</dt><dd>' + escapeHtml(f[1]) + '</dd></div>';
+      }).join('');
+    }
+    var cl = document.getElementById('contactLocation');
+    if (cl) cl.textContent = pick(PROFILE.contact.location, lang);
+  }
+
+  function renderMemberships(lang) {
+    var wrap = document.getElementById('membershipsList');
+    if (!wrap) return;
+    var items = PROFILE.memberships || [];
+    toggleSection('memberships', items.length > 0);
+    wrap.innerHTML = items.map(function (m) {
+      return '<li class="member-card reveal">' +
+        '<span class="member-card__ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>' +
+        '<span>' + escapeHtml(pick(m, lang)) + '</span></li>';
+    }).join('');
+  }
+
+  function renderTrainings(lang) {
+    var wrap = document.getElementById('trainingsList');
+    if (!wrap) return;
+    var items = PROFILE.trainings || [];
+    toggleSection('trainings', items.length > 0);
+    wrap.innerHTML = items.map(function (tr) {
+      var place = pick(tr.place, lang);
+      var year = tr.year && tr.year !== '—' ? tr.year : '';
+      return '<li class="training-item reveal">' +
+        '<span class="training-item__year">' + escapeHtml(year || '•') + '</span>' +
+        '<span class="training-item__body"><span class="training-item__name">' + escapeHtml(tr[lang] || tr.en) + '</span>' +
+        (place ? '<span class="training-item__place">' + escapeHtml(place) + '</span>' : '') + '</span></li>';
+    }).join('');
+  }
+
   function renderDynamic(lang) {
+    renderFacts(lang);
     renderExperience(lang);
     renderEducation(lang);
     renderSkills(lang);
     renderLanguages(lang);
+    renderMemberships(lang);
+    renderTrainings(lang);
     observeReveals();
   }
 

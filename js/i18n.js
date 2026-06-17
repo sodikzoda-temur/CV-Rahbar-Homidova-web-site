@@ -31,15 +31,13 @@
 
       about_eyebrow: "Profile",
       about_title: "About",
-      about_p1: "Rahbar Homidova is a WASH (Water, Sanitation and Hygiene) expert committed to advancing equitable, sustainable access to safe water, sanitation and hygiene for communities. Her practice connects people-centred social mobilisation with gender-responsive programming, behaviour-change and hygiene promotion, and climate-resilient approaches to the WASH sector.",
-      about_p2: "She partners with communities, institutions and development organisations to design and deliver programmes that are inclusive, evidence-informed and built to last — placing dignity, equity and local ownership at the centre of every intervention.",
+      about_p1: "Experienced social development and WASH specialist with over 18 years of expertise in rural water supply, sanitation, hygiene promotion, community mobilisation, institutional capacity building and stakeholder coordination.",
+      about_p2: "She currently serves as Social, Hygiene and Sanitation Coordinator, delivering large-scale rural WASH programmes in Tajikistan in partnership with the International Secretariat for Water (ISW) and Swiss Development Cooperation (SDC) — placing community ownership, governance, gender equality and behaviour change at the heart of her work.",
 
-      fact_focus_label: "Focus",
-      fact_focus_value: "WASH sector",
+      fact_experience_label: "Experience",
+      fact_role_label: "Current role",
       fact_location_label: "Location",
-      fact_location_value: "Tajikistan",
       fact_languages_label: "Languages",
-      fact_languages_value: "Tajik · Russian · English",
 
       expertise_eyebrow: "What I do",
       expertise_title: "Areas of Expertise",
@@ -55,12 +53,17 @@
       experience_eyebrow: "Career",
       experience_title: "Professional Experience",
       education_eyebrow: "Background",
-      education_title: "Education & Certifications",
+      education_title: "Education",
 
       skills_eyebrow: "Toolkit",
       skills_title: "Key Skills",
       languages_eyebrow: "Communication",
       languages_title: "Languages",
+
+      memberships_eyebrow: "Engagement",
+      memberships_title: "Memberships & Networks",
+      trainings_eyebrow: "Continuous learning",
+      trainings_title: "Selected Trainings & International Participation",
 
       contact_eyebrow: "Get in touch",
       contact_title: "Let’s work together",
@@ -99,15 +102,13 @@
 
       about_eyebrow: "Профиль",
       about_title: "Обо мне",
-      about_p1: "Рахбар Хомидова — эксперт в области WASH (водоснабжение, санитария и гигиена), нацеленный на расширение равного и устойчивого доступа сообществ к безопасной воде, санитарии и гигиене. В своей работе она объединяет социальную мобилизацию, ориентированную на людей, с гендерно-чувствительными программами, изменением поведения и продвижением гигиены, а также подходами к адаптации сектора WASH к изменению климата.",
-      about_p2: "Она сотрудничает с сообществами, учреждениями и организациями развития, чтобы разрабатывать и реализовывать инклюзивные, основанные на данных и долгосрочные программы — ставя достоинство, равенство и местную вовлечённость в центр каждого вмешательства.",
+      about_p1: "Опытный специалист по социальному развитию и WASH с более чем 18-летним стажем в сфере сельского водоснабжения, санитарии, продвижения гигиены, мобилизации сообществ, укрепления институционального потенциала и координации со стейкхолдерами.",
+      about_p2: "В настоящее время занимает должность координатора по социальным вопросам, гигиене и санитарии, реализуя масштабные программы сельского WASH в Таджикистане совместно с Международным секретариатом по воде (ISW) и Швейцарским управлением по развитию и сотрудничеству (SDC) — ставя в центр работы вовлечённость сообществ, управление, гендерное равенство и изменение поведения.",
 
-      fact_focus_label: "Направление",
-      fact_focus_value: "Сектор WASH",
+      fact_experience_label: "Опыт",
+      fact_role_label: "Текущая роль",
       fact_location_label: "Локация",
-      fact_location_value: "Таджикистан",
       fact_languages_label: "Языки",
-      fact_languages_value: "Таджикский · Русский · Английский",
 
       expertise_eyebrow: "Чем я занимаюсь",
       expertise_title: "Области экспертизы",
@@ -123,12 +124,17 @@
       experience_eyebrow: "Карьера",
       experience_title: "Профессиональный опыт",
       education_eyebrow: "Подготовка",
-      education_title: "Образование и сертификаты",
+      education_title: "Образование",
 
       skills_eyebrow: "Инструментарий",
       skills_title: "Ключевые навыки",
       languages_eyebrow: "Коммуникация",
       languages_title: "Языки",
+
+      memberships_eyebrow: "Вовлечённость",
+      memberships_title: "Членство и сети",
+      trainings_eyebrow: "Непрерывное обучение",
+      trainings_title: "Избранные тренинги и международное участие",
 
       contact_eyebrow: "Связаться",
       contact_title: "Давайте работать вместе",

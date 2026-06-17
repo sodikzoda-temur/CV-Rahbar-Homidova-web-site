@@ -157,8 +157,10 @@
         <div class="hero__media">
           <figure class="portrait">
             <div class="portrait__frame">
-              <!-- Photo slot: replaced with real photo when provided -->
-              <img class="portrait__img" src="/assets/img/portrait.svg" alt="Rahbar Homidova" width="440" height="540" />
+              <picture>
+                <source srcset="/assets/img/portrait.webp" type="image/webp" />
+                <img class="portrait__img" src="/assets/img/portrait.jpg" alt="Rahbar Homidova — WASH Expert" width="900" height="1125" />
+              </picture>
             </div>
             <span class="portrait__corner portrait__corner--tl" aria-hidden="true"></span>
             <span class="portrait__corner portrait__corner--br" aria-hidden="true"></span>
@@ -189,11 +191,7 @@
             programmes that are inclusive, evidence-informed and built to last — placing dignity, equity and
             local ownership at the centre of every intervention.
           </p>
-          <dl class="about__facts">
-            <div class="fact"><dt data-i18n="fact_focus_label">Focus</dt><dd data-i18n="fact_focus_value">WASH sector</dd></div>
-            <div class="fact"><dt data-i18n="fact_location_label">Location</dt><dd data-i18n="fact_location_value">Tajikistan</dd></div>
-            <div class="fact"><dt data-i18n="fact_languages_label">Languages</dt><dd data-i18n="fact_languages_value">Tajik · Russian · English</dd></div>
-          </dl>
+          <dl class="about__facts" id="aboutFacts"></dl>
         </div>
       </div>
     </section>
@@ -280,6 +278,28 @@
       </div>
     </section>
 
+    <!-- ============================ MEMBERSHIPS ============================ -->
+    <section class="section section--alt memberships" id="memberships">
+      <div class="container">
+        <div class="section__head">
+          <p class="eyebrow" data-i18n="memberships_eyebrow">Engagement</p>
+          <h2 class="section__title" data-i18n="memberships_title">Memberships &amp; Networks</h2>
+        </div>
+        <ul class="member-grid" id="membershipsList"></ul>
+      </div>
+    </section>
+
+    <!-- ============================ TRAININGS ============================ -->
+    <section class="section trainings" id="trainings">
+      <div class="container">
+        <div class="section__head">
+          <p class="eyebrow" data-i18n="trainings_eyebrow">Continuous learning</p>
+          <h2 class="section__title" data-i18n="trainings_title">Selected Trainings &amp; International Participation</h2>
+        </div>
+        <ul class="training-list" id="trainingsList"></ul>
+      </div>
+    </section>
+
     <!-- ============================ CONTACT ============================ -->
     <section class="section contact" id="contact">
       <div class="container">
@@ -300,7 +320,7 @@
               </li>
               <li>
                 <span class="contact__ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none"><path d="M12 21s7-6.3 7-11a7 7 0 0 0-14 0c0 4.7 7 11 7 11Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="12" cy="10" r="2.5" stroke="currentColor" stroke-width="2"/></svg></span>
-                <span class="contact__meta"><span class="contact__label" data-i18n="label_location">Location</span><span data-i18n="fact_location_value">Tajikistan</span></span>
+                <span class="contact__meta"><span class="contact__label" data-i18n="label_location">Location</span><span id="contactLocation">Tajikistan</span></span>
               </li>
             </ul>
 

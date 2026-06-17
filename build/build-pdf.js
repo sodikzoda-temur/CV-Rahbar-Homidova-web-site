@@ -86,6 +86,22 @@ function buildDoc(lang) {
   });
   content.push(ruleLine(CONTENT_W, GOLD, 1.2, 6, 4));
 
+  /* ---- personal details (compact) ---- */
+  var p = c.personal;
+  if (p) {
+    var PL = lang === 'ru'
+      ? { dob: 'Дата рождения', nat: 'Гражданство', mar: 'Семейное положение' }
+      : { dob: 'Date of birth', nat: 'Nationality', mar: 'Marital status' };
+    content.push({
+      text: [
+        { text: PL.dob + ': ', bold: true, color: NAVY }, { text: pick(p.dob, lang) },
+        { text: '     ·     ' + PL.nat + ': ', bold: true, color: NAVY }, { text: pick(p.nationality, lang) },
+        { text: '     ·     ' + PL.mar + ': ', bold: true, color: NAVY }, { text: pick(p.marital, lang) }
+      ],
+      style: 'personal', margin: [0, 2, 0, 2]
+    });
+  }
+
   /* ---- profile / summary ---- */
   content.push(...sectionHead(t.about_title));
   content.push({ text: t.about_p1, style: 'para', margin: [0, 0, 0, 5] });
@@ -127,6 +143,7 @@ function buildDoc(lang) {
         ]
       }];
       block.push({ text: pick(it.org, lang) + (loc ? '  ·  ' + loc : ''), style: 'expOrg' });
+      if (it.note) block.push({ text: pick(it.note, lang), style: 'expNote' });
       if (bullets.length) block.push({ ul: bullets, style: 'bullets', margin: [0, 2, 0, 0] });
       else if (it.summary) block.push({ text: pick(it.summary, lang), style: 'para' });
       content.push({ stack: block, margin: [0, 0, 0, 9] });
@@ -175,6 +192,32 @@ function buildDoc(lang) {
     });
   }
 
+  /* ---- memberships ---- */
+  if (PROFILE.memberships && PROFILE.memberships.length) {
+    content.push(...sectionHead(t.memberships_title));
+    content.push({ ul: PROFILE.memberships.map((m) => pick(m, lang)), style: 'bullets' });
+  }
+
+  /* ---- trainings & international participation (2 columns) ---- */
+  if (PROFILE.trainings && PROFILE.trainings.length) {
+    content.push(...sectionHead(t.trainings_title));
+    var trLine = (tr) => ({
+      text: [
+        (tr.year && tr.year !== '—') ? { text: tr.year + '  ', style: 'period' } : { text: '·  ', color: GOLD_DK, bold: true },
+        { text: (tr[lang] || tr.en) + (pick(tr.place, lang) ? ', ' + pick(tr.place, lang) : ''), color: INK_SOFT }
+      ],
+      fontSize: 9, margin: [0, 1.6, 0, 1.6]
+    });
+    var half = Math.ceil(PROFILE.trainings.length / 2);
+    content.push({
+      columns: [
+        { width: '*', stack: PROFILE.trainings.slice(0, half).map(trLine) },
+        { width: 16, text: '' },
+        { width: '*', stack: PROFILE.trainings.slice(half).map(trLine) }
+      ]
+    });
+  }
+
   return {
     pageSize: 'A4',
     pageMargins: [40, 44, 40, 50],
@@ -203,6 +246,8 @@ function buildDoc(lang) {
       areaDesc: { fontSize: 9, color: MUTED, lineHeight: 1.32 },
       expRole: { font: 'MontserratSemiBold', fontSize: 11, color: NAVY },
       expOrg: { fontSize: 9.5, color: INK_SOFT, margin: [0, 1, 0, 2] },
+      expNote: { fontSize: 9, color: GOLD_DK, italics: true, margin: [0, 0, 0, 2] },
+      personal: { fontSize: 8.7, color: INK_SOFT },
       period: { fontSize: 9, color: GOLD_DK, bold: true, characterSpacing: 0.4 },
       bullets: { fontSize: 9.4, color: INK_SOFT, lineHeight: 1.3 },
       skills: { fontSize: 10, color: NAVY, lineHeight: 1.5 },
