@@ -1,0 +1,11 @@
+# build tooling deps (run `npm install` inside build/ to restore)
+build/node_modules/
+node_modules/
+
+# QA screenshot artifacts
+build/shots/
+
+# misc
+.DS_Store
+*.log
+_site/

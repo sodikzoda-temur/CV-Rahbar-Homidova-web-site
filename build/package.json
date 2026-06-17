@@ -1,0 +1,23 @@
+{
+  "name": "rahbarhomidova-build",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Build tooling for rahbarhomidova.com — generates the CV PDFs, vCard, QR and images.",
+  "scripts": {
+    "pdf": "node build-pdf.js",
+    "vcf": "node gen-vcf.js",
+    "images": "node gen-images.js",
+    "qr": "python3 gen-qr.py",
+    "shots": "node screenshot.js",
+    "build": "npm run pdf && npm run vcf && npm run images && npm run qr"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "dependencies": {
+    "@fontsource/montserrat": "^5.0.18",
+    "pdf-parse": "^1.1.1",
+    "pdfmake": "^0.2.10",
+    "playwright-core": "^1.49.1",
+    "sharp": "^0.33.5"
+  }
+}
