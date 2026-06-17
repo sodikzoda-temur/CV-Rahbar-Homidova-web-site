@@ -28,13 +28,7 @@
       phoneE164: '+992991222202',
       email: 'rahbar.homidova@gmail.com',
       website: 'https://rahbarhomidova.com',
-      location: TJ,
-      // Personal details — shown only in the PDF CV (omitted from the public site).
-      personal: {
-        dob: { en: '9 April 1983', ru: '9 апреля 1983' },
-        nationality: { en: 'Tajik', ru: 'Таджикское' },
-        marital: { en: 'Married', ru: 'Замужем' }
-      }
+      location: TJ
     },
 
     // Short facts for the "About" section.

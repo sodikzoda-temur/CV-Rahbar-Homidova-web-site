@@ -135,29 +135,48 @@ python3 -m http.server 8000
 
 ---
 
-## 🚀 Публикация на rahbarhomidova.com (GitHub Pages)
+## 🚀 Публикация на rahbarhomidova.com (GitHub Pages + Cloudflare)
 
-1. **Включите Pages:** репозиторий → *Settings → Pages → Build and deployment →
-   Source: **GitHub Actions***.
-2. **Смержите ветку в `main`.** Workflow `.github/workflows/deploy.yml`
-   соберёт и опубликует сайт автоматически (файл `CNAME` уже содержит домен).
-3. **Custom domain:** в *Settings → Pages* в поле Custom domain укажите
-   `rahbarhomidova.com`, включите **Enforce HTTPS**.
-4. **DNS у регистратора домена** — добавьте записи:
+Домен зарегистрирован и обслуживается в **Cloudflare**, поэтому DNS-записи
+добавляются в панели Cloudflare (а не у стороннего регистратора).
 
-   | Тип   | Имя (host) | Значение |
-   |-------|------------|----------|
-   | A     | `@`        | `185.199.108.153` |
-   | A     | `@`        | `185.199.109.153` |
-   | A     | `@`        | `185.199.110.153` |
-   | A     | `@`        | `185.199.111.153` |
-   | CNAME | `www`      | `sodikzoda-temur.github.io` |
+### Шаг 1. Залить сайт на GitHub Pages
+1. Смержить Pull Request в ветку `main`.
+2. Репозиторий → *Settings → Pages → Build and deployment → Source:* **GitHub Actions**.
+3. Merge запустит workflow `.github/workflows/deploy.yml` — дождитесь зелёной
+   галочки во вкладке *Actions* (файл `CNAME` с доменом уже в репозитории).
 
-   (Опционально IPv6 — записи `AAAA` на `@`: `2606:50c0:8000::153`,
-   `2606:50c0:8001::153`, `2606:50c0:8002::153`, `2606:50c0:8003::153`.)
+### Шаг 2. DNS в Cloudflare
+Зайдите на **dash.cloudflare.com** → выберите домен `rahbarhomidova.com` →
+вкладка **DNS → Records → Add record** и добавьте:
 
-   Распространение DNS — от нескольких минут до 24 часов. После этого GitHub
-   автоматически выпустит TLS-сертификат.
+| Type  | Name (host)          | Content (value)            | Proxy status        |
+|-------|----------------------|----------------------------|---------------------|
+| A     | `rahbarhomidova.com` | `185.199.108.153`          | **DNS only** (серое облако) |
+| A     | `rahbarhomidova.com` | `185.199.109.153`          | **DNS only** |
+| A     | `rahbarhomidova.com` | `185.199.110.153`          | **DNS only** |
+| A     | `rahbarhomidova.com` | `185.199.111.153`          | **DNS only** |
+| CNAME | `www`                | `sodikzoda-temur.github.io`| **DNS only** |
+
+> В поле **Name** для apex-домена можно ввести `@` или `rahbarhomidova.com`.
+> **Важно:** оставьте **серое облако (DNS only)**, пока GitHub не выпустит
+> TLS-сертификат — оранжевый прокси Cloudflare может помешать его выдаче.
+>
+> (Опционально IPv6 — записи `AAAA` на apex: `2606:50c0:8000::153`,
+> `2606:50c0:8001::153`, `2606:50c0:8002::153`, `2606:50c0:8003::153`.)
+
+### Шаг 3. Привязать домен и включить HTTPS
+1. *Settings → Pages → Custom domain:* введите `rahbarhomidova.com` → **Save**
+   (GitHub проверит DNS — может занять несколько минут).
+2. Когда проверка пройдёт, поставьте галочку **Enforce HTTPS**.
+
+### Шаг 4 (опционально). Включить прокси Cloudflare
+После того как сайт открывается по `https://rahbarhomidova.com`:
+в Cloudflare *SSL/TLS → Overview* выберите режим **Full**, затем при желании
+переключите записи на **оранжевое облако** (Proxied) — получите CDN/кэш и защиту
+Cloudflare. При режиме *Flexible* будет «redirect loop» — используйте только **Full**.
+
+> Распространение DNS — обычно несколько минут (у Cloudflare быстро), иногда до 24 часов.
 
 ---
 

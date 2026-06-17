@@ -86,22 +86,6 @@ function buildDoc(lang) {
   });
   content.push(ruleLine(CONTENT_W, GOLD, 1.2, 6, 4));
 
-  /* ---- personal details (compact) ---- */
-  var p = c.personal;
-  if (p) {
-    var PL = lang === 'ru'
-      ? { dob: 'Дата рождения', nat: 'Гражданство', mar: 'Семейное положение' }
-      : { dob: 'Date of birth', nat: 'Nationality', mar: 'Marital status' };
-    content.push({
-      text: [
-        { text: PL.dob + ': ', bold: true, color: NAVY }, { text: pick(p.dob, lang) },
-        { text: '     ·     ' + PL.nat + ': ', bold: true, color: NAVY }, { text: pick(p.nationality, lang) },
-        { text: '     ·     ' + PL.mar + ': ', bold: true, color: NAVY }, { text: pick(p.marital, lang) }
-      ],
-      style: 'personal', margin: [0, 2, 0, 2]
-    });
-  }
-
   /* ---- profile / summary ---- */
   content.push(...sectionHead(t.about_title));
   content.push({ text: t.about_p1, style: 'para', margin: [0, 0, 0, 5] });
