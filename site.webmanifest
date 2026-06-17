@@ -1,0 +1,14 @@
+{
+  "name": "Rahbar Homidova — WASH Expert",
+  "short_name": "R. Homidova",
+  "description": "WASH expert: social mobilisation, gender integration, hygiene promotion and climate adaptation.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F7F2E8",
+  "theme_color": "#1E3A5C",
+  "icons": [
+    { "src": "/assets/icons/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "/assets/icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/assets/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}
