@@ -5,6 +5,9 @@ node_modules/
 # QA screenshot artifacts
 build/shots/
 
+# CV PDFs are generated in CI (deploy workflow) from js/profile.js
+cv/*.pdf
+
 # misc
 .DS_Store
 *.log

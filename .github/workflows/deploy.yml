@@ -27,6 +27,19 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Build CV PDFs (EN + RU)
+        # Generate the résumé PDFs from js/profile.js so they always match the
+        # site content. Only pdfmake is needed (installed into a temp dir to keep
+        # it fast); the Montserrat TTFs are committed under assets/fonts/.
+        run: |
+          npm install --no-save --no-audit --no-fund --prefix "$RUNNER_TEMP/pdfdeps" pdfmake@0.2.10
+          NODE_PATH="$RUNNER_TEMP/pdfdeps/node_modules" node build/build-pdf.js
+
       - name: Assemble clean site directory
         run: |
           mkdir -p _site
@@ -43,6 +56,11 @@ jobs:
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
+        with:
+          # Auto-enable Pages (Build type: GitHub Actions) on first run,
+          # so no manual Settings → Pages step is required. Repo must be public
+          # (or on a paid plan).
+          enablement: true
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
