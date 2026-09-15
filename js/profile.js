@@ -73,6 +73,31 @@
         }
       },
       {
+        period: { en: 'Aug 2026', ru: 'Авг 2026' },
+        role: { en: 'WASH Expert — Glacier & Glacial-Lake Monitoring Expedition', ru: 'Эксперт WASH — экспедиция по мониторингу ледников и ледниковых озёр' },
+        org: { en: 'Adygene Glacier research station', ru: 'Научная станция «Адыгене»' },
+        location: { en: 'Kyrgyzstan', ru: 'Кыргызстан' },
+        note: { en: 'Monitoring of glaciers and outburst-prone glacial lakes', ru: 'Мониторинг ледников и прорывоопасных ледниковых озёр' },
+        bullets: {
+          en: [
+            'Served as WASH expert on a high-altitude glacier and glacial-lake monitoring expedition',
+            'Water-quality analysis of glacial-lake water: pH, electrical conductivity (EC), total dissolved solids (TDS), temperature, dissolved oxygen and turbidity (HANNA instruments)',
+            'Assessment of glacial lake outburst flood (GLOF) risk — moraine-dam condition, water level and risk factors',
+            'Bathymetric survey and GPS mapping of Lake Adygene',
+            'Glacier monitoring: ablation stakes, ice-melt and snow-depth measurement, snow density and snow water equivalent',
+            'Connecting glacier melt and water resources to community water security and climate adaptation'
+          ],
+          ru: [
+            'Участие в качестве WASH-эксперта в высокогорной экспедиции по мониторингу ледника и ледниковых озёр',
+            'Анализ качества воды ледникового озера: pH, электропроводность (EC), общее содержание растворённых веществ (TDS), температура, растворённый кислород и мутность (приборы HANNA)',
+            'Оценка риска прорыва ледниковых озёр (GLOF) — состояние моренной плотины, уровень воды и факторы риска',
+            'Батиметрическая съёмка и GPS-картирование озера Адыгене',
+            'Мониторинг ледника: абляционные рейки, измерение таяния льда и высоты снега, плотность снега и водный эквивалент снега',
+            'Связь таяния ледников и водных ресурсов с водной безопасностью сообществ и адаптацией к климату'
+          ]
+        }
+      },
+      {
         period: '2026',
         role: { en: 'Training of Trainers (ToT) — OSCE', ru: 'Тренинг для тренеров (ToT) — ОБСЕ' },
         org: { en: 'OSCE', ru: 'ОБСЕ' },
@@ -294,10 +319,12 @@
       { en: 'Member, People’s Democratic Party of Tajikistan', ru: 'Член Народно-демократической партии Таджикистана' },
       { en: 'Member, TajWSS Network Group', ru: 'Член сети TajWSS Network Group' },
       { en: 'Active participant, Syrdarya Basin Dialogue', ru: 'Активный участник Диалога бассейна реки Сырдарья' },
-      { en: 'Member, Syrdarya River Basin Women’s Council', ru: 'Член Женского совета бассейна реки Сырдарья' }
+      { en: 'Member, Syrdarya River Basin Women’s Council', ru: 'Член Женского совета бассейна реки Сырдарья' },
+      { en: 'Member, expert community on climate change & glacier impacts', ru: 'Член сообщества экспертов по изменению климата и влиянию на ледники' }
     ],
 
     trainings: [
+      { year: '2026', en: 'IPROMO Central Asia Summer School — Glaciers: understanding, preserving & adapting to climate change (UCA · OSCE · Mountain Partnership / FAO)', ru: 'Летняя школа IPROMO Central Asia — «Ледники: понимание, сохранение и адаптация к изменению климата» (UCA · ОБСЕ · Горное партнёрство / ФАО)', place: { en: 'Naryn, Kyrgyzstan', ru: 'Нарын, Кыргызстан' } },
       { year: '2002', en: 'OSCE Civil Education Summer Camp', ru: 'Летний лагерь гражданского образования ОБСЕ', place: { en: '', ru: '' } },
       { year: '2012', en: '6th World Water Forum', ru: '6-й Всемирный водный форум', place: { en: 'France', ru: 'Франция' } },
       { year: '2014', en: 'Water Safety Plan Training', ru: 'Тренинг по планам безопасного водоснабжения', place: { en: '', ru: '' } },
